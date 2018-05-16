@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+  <record forcecreate="True" id="ir_cron_mail_digest_daily_action" model="ir.cron">
+    <field name="name">Digest mail process - daily</field>
+    <field name="model_id" ref="model_mail_digest"/>
+    <field name="user_id" ref="base.user_root"/>
+    <field name="interval_number">1</field>
+    <field name="interval_type">days</field>
+    <field name="numbercall">-1</field>
+    <field eval="False" name="doall"/>
+    <field name="code">model.process()</field>
+  </record>
+  <record forcecreate="True" id="ir_cron_mail_digest_weekly_action" model="ir.cron">
+    <field name="name">Digest mail process - weekly</field>
+    <field name="model_id" ref="model_mail_digest"/>
+    <field name="user_id" ref="base.user_root"/>
+    <field name="interval_number">1</field>
+    <field name="interval_type">weeks</field>
+    <field name="numbercall">-1</field>
+    <field name="doall" eval="False"/>
+    <field name="code">model.process(frequency='weekly')</field>
+  </record>
+</odoo>
